@@ -22,13 +22,27 @@
 				default () {
 					return []
 				}
+			},
+			tabIndex: {
+				type: Number,
+				default: 0
 			}
 		},
+		
 		data() {
 			return {
 				activeIndex: 0
 			};
 		},
+		
+		// 可以监听 data props 值的变化
+		watch: {
+			tabIndex: function(newVal) {
+				// console.log(newVal);
+				this.activeIndex = newVal
+			}
+		},
+		
 		methods:{
 			clickTab: function(item, index) {
 				this.activeIndex = index

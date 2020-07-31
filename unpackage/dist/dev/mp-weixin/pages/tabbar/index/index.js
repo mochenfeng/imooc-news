@@ -107,13 +107,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   navbar: function() {
-    return __webpack_require__.e(/*! import() | components/navbar/navbar */ "components/navbar/navbar").then(__webpack_require__.bind(null, /*! @/components/navbar/navbar.vue */ 37))
+    return __webpack_require__.e(/*! import() | components/navbar/navbar */ "components/navbar/navbar").then(__webpack_require__.bind(null, /*! @/components/navbar/navbar.vue */ 45))
   },
   tab: function() {
-    return __webpack_require__.e(/*! import() | components/tab/tab */ "components/tab/tab").then(__webpack_require__.bind(null, /*! @/components/tab/tab.vue */ 44))
+    return __webpack_require__.e(/*! import() | components/tab/tab */ "components/tab/tab").then(__webpack_require__.bind(null, /*! @/components/tab/tab.vue */ 52))
   },
   list: function() {
-    return __webpack_require__.e(/*! import() | components/list/list */ "components/list/list").then(__webpack_require__.bind(null, /*! @/components/list/list.vue */ 80))
+    return __webpack_require__.e(/*! import() | components/list/list */ "components/list/list").then(__webpack_require__.bind(null, /*! @/components/list/list.vue */ 59))
   }
 }
 var render = function() {
@@ -151,7 +151,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -175,7 +175,14 @@ var _default = {
       activeIndex: 0 };
 
   },
-  onLoad: function onLoad() {
+  onLoad: function onLoad() {var _this = this;
+    uni.$on('labelChange', function (res) {
+      // this.tabList = []
+      _this.tabIndex = 0;
+      _this.activeIndex = 0;
+      _this.getLabel();
+    });
+
     this.getLabel();
   },
   methods: {
@@ -187,12 +194,10 @@ var _default = {
       this.activeIndex = index;
     },
 
-    getLabel: function getLabel() {var _this = this;
+    getLabel: function getLabel() {var _this2 = this;
       // console.log(this.$api)
       // 调用云函数的方法
-      this.$api.get_label({
-        name: 'get_label' }).
-      then(function (res) {var
+      this.$api.get_label().then(function (res) {var
 
         data =
         res.data;
@@ -200,7 +205,7 @@ var _default = {
         data.unshift({
           name: '全部' });
 
-        _this.tabList = data;
+        _this2.tabList = data;
         // console.log(this.tabList)
       });
     },
@@ -210,6 +215,7 @@ var _default = {
       this.activeIndex = current;
       // console.log("当前swiper的值:" + current);
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 /* 23 */

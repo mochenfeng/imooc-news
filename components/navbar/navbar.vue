@@ -3,12 +3,22 @@
 		<!-- 状态栏 -->
 		<view :style="{height: statusBarHeight + 'px'}"></view>
 		<!-- 导航栏内容 -->
-		<view class="navbar-content" :style="{height: navBarHeight + 'px', width: windowWidth + 'px'}">
-			<view class="navbar-search">
+		<view class="navbar-content" :class="{search:isSearch}" :style="{height: navBarHeight + 'px', width: windowWidth + 'px'}" @click.stop="open">
+			<view v-if="isSearch" class="navbar-content_search-icons" @click="back">
+				<uni-icons type="back" size="22" color="#fff"></uni-icons>
+			</view>
+			<view v-if="!isSearch" class="navbar-search">
+				<!-- 非搜索页显示 -->
 				<view class="navbar-search_icon">
 					<uni-icons type="search" size="16" color="#999"></uni-icons>
 				</view>
 				<view class="navbar-search_text">uni-app、vue</view>
+			</view>
+			
+			<view v-else class="navbar-search">
+				<!-- 搜索页显示 -->
+				<input class="navbar-search_text" type="text" v-model="val" placeholder="请输入您要输入的内容"
+					@input="inputChange"/>
 			</view>
 		</view>
 	</view>
@@ -16,12 +26,28 @@
 
 <script>
 	export default {
+		props: {
+			isSearch: {
+				type: Boolean,
+				default: false
+			},
+			value: {
+				type: [String, Number],
+				default: ''
+			},
+		},
 		data() {
 			return {
 				statusBarHeight:　20,
 				navBarHeight: 45,
-				windowWidth: 375
+				windowWidth: 375,
+				val: ''
 			};
+		},
+		watch:{
+			value(newVal) {
+				this.val = newVal
+			}
 		},
 		created() {
 			// 获取手机系统信息
@@ -43,6 +69,24 @@
 			
 			this.windowWidth = menuButtonInfo.left
 			// #endif
+		},
+		methods: {
+			back: function() {
+				uni.switchTab({
+					url: '/pages/tabbar/index/index'
+				})
+			},
+			open: function() {
+				if(this.isSearch) return
+				uni.navigateTo({
+					url: '/pages/home-search/home-search'
+				})
+			},
+			inputChange: function(e) {
+				const {value} = e.detail
+				this.$emit('input', value)
+			}
+			
 		}
 	}
 </script>
@@ -78,8 +122,20 @@
 					margin-right: 10px;
 				}
 				.navbar-search_text {
-					font-size: 12px;
+					width: 100%;
+					font-size: 14px;
 					color: #999;
+				}
+			}
+			
+			&.search {
+				padding-left: 0;
+				.navbar-content_search-icons {
+					margin-left: 10px;
+					margin-right: 10px;
+				}
+				.navbar-search {
+					border-radius: 5px;
 				}
 			}
 		}

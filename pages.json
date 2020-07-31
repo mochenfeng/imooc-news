@@ -16,6 +16,18 @@
             "path" : "pages/tabbar/follow/follow",
             "style" : {}
         }
+        ,{
+            "path" : "pages/home-search/home-search",
+            "style" : {
+				"navigationStyle":"custom"
+			}
+        }
+        ,{
+            "path" : "pages/home-label/home-label",
+            "style" : {
+				"navigationBarTitleText": "标签管理"
+			}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

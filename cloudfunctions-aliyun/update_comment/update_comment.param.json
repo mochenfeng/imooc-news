@@ -1,0 +1,10 @@
+// 本文件中的json内容将在云函数【运行】时作为参数传给云函数。
+// 配置教程参考：https://uniapp.dcloud.net.cn/uniCloud/quickstart?id=runparam
+{	"user_id": "5f1fbc988ba7d80001858dd3",
+	"article_id": "5f1fbc95bb1edd0001b737d9",
+	"comment_id": "1la4dbicos",
+	"reply_id": "5bz9ymf2kx",
+	"is_reply": true,
+	"content": "子回复成功"
+	// "content": "评论成功"
+}

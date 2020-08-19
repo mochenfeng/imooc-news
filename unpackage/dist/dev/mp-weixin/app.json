@@ -5,7 +5,10 @@
     "pages/tabbar/follow/follow",
     "pages/home-search/home-search",
     "pages/home-label/home-label",
-    "pages/home-detail/home-detail"
+    "pages/home-detail/home-detail",
+    "pages/detail-comments/detail-comments",
+    "pages/my-article/my-article",
+    "pages/feedback/feedback"
   ],
   "subPackages": [],
   "window": {
@@ -17,7 +20,7 @@
   "tabBar": {
     "color": "#666",
     "selectedColor": "#f07373",
-    "backgroundColor": "fff",
+    "backgroundColor": "#fff",
     "list": [
       {
         "pagePath": "pages/tabbar/index/index",
@@ -40,5 +43,5 @@
     ]
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap97.json"
+  "sitemapLocation": "sitemap34.json"
 }

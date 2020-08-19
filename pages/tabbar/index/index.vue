@@ -14,12 +14,21 @@
 
 <script>
 	// easyCom components/组件名/组件名.vue 局部引入
+	import {mapState} from 'vuex'
 	export default {
 		data() {
 			return {
 				tabList: [],
 				tabIndex: 0,
 				activeIndex: 0
+			}
+		},
+		computed: {
+			...mapState(['userinfo'])
+		},
+		watch:{
+			userinfo(newVal) {
+				this.getLabel()
 			}
 		},
 		onLoad() {
@@ -29,8 +38,6 @@
 				this.activeIndex = 0
 				this.getLabel()
 			})
-			
-			this.getLabel()
 		},
 		methods: {
 			tab: function({

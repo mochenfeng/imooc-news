@@ -10,11 +10,15 @@
 		}
 	    ,{
             "path" : "pages/tabbar/my/my",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "个人中心"
+			}
         }
         ,{
             "path" : "pages/tabbar/follow/follow",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "关注"
+			}
         }
         ,{
             "path" : "pages/home-search/home-search",
@@ -30,10 +34,24 @@
         }
         ,{
             "path" : "pages/home-detail/home-detail",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "详情"
+			}
         }
         ,{
             "path" : "pages/detail-comments/detail-comments",
+            "style" : {
+				"navigationBarTitleText": "评价列表"
+			}
+        }
+        ,{
+            "path" : "pages/my-article/my-article",
+            "style" : {
+				"navigationBarTitleText": "我的文章"
+			}
+        }
+        ,{
+            "path" : "pages/feedback/feedback",
             "style" : {}
         }
     ],
@@ -46,7 +64,7 @@
 	"tabBar": {
 		"color":"#666",
 		"selectedColor":"#f07373",
-		"backgroundColor":"fff",
+		"backgroundColor":"#fff",
 		"list": [{
 			"pagePath":"pages/tabbar/index/index",
 			"iconPath":"static/home.png",

@@ -16,7 +16,6 @@
 			</view>
 			
 			<view v-else class="navbar-search">
-				<!-- 搜索页显示 -->
 				<input class="navbar-search_text" type="text" v-model="val" placeholder="请输入您要输入的内容"
 					@input="inputChange"/>
 			</view>
